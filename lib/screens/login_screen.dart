@@ -52,9 +52,6 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
-              Text(
-                "(Formu doldurduktan sonra Kayıt ol butonuna basarak kolayca kayıt olabilirsiniz.)",
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: Divider(),

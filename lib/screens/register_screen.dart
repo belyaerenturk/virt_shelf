@@ -45,14 +45,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 80.0,
               ),
               Text(
-                "Hesabınız yoksa lütfen kayıt olunuz.\n",
+                "Kayıt Ol\n",
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
-              ),
-              Text(
-                "(Formu doldurduktan sonra Kayıt ol butonuna basarak kolayca kayıt olabilirsiniz.)",
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
