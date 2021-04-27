@@ -19,8 +19,8 @@ class _RegisterPageState extends State<RegisterPage> {
     var s = sifreKayit.text;
     var ta = tamAdKayit.text;
 
-    if(ka == "" && s == "") {
-      scaffoldKeyKayit.currentState.showSnackBar(SnackBar(content: Text("Hatali kayit."),),);
+    if(ka == "" && s == "" && ta == "") {
+      scaffoldKeyKayit.currentState.showSnackBar(SnackBar(content: Text("Hatali kayit, herhangi bir alan boş bırakılamaz."),),);
     }
     else {
       var sp = await SharedPreferences.getInstance();
@@ -30,6 +30,8 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.push(context, MaterialPageRoute(builder: (context) => OpeningScreen()),);
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
