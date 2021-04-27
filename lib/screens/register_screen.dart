@@ -27,11 +27,10 @@ class _RegisterPageState extends State<RegisterPage> {
       sp.setString("kullaniciAdiKayit", ka);
       sp.setString("sifreKayit", s);
       sp.setString("tamAdKayit", ta);
+
       Navigator.push(context, MaterialPageRoute(builder: (context) => OpeningScreen()),);
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
