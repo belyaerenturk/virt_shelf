@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:virt_shelf/screens/category/category_page.dart';
+import 'package:virt_shelf/screens/edit_profile_page.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/screens/reading_page.dart';
 
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.person, color: Colors.black,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsUI()));
             },
           ),
         ],

@@ -94,7 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: tamAdKayit,
                   decoration: InputDecoration(
                     labelText: 'Tam Adı',
-                    prefixIcon: Icon(Icons.security),
+                    prefixIcon: Icon(Icons.public),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
