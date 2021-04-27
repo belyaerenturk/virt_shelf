@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:virt_shelf/screens/home_screen.dart';
 import 'package:virt_shelf/screens/settings_screen.dart';
 
 class SettingsUI extends StatelessWidget {
@@ -137,7 +138,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                     child: Text(
                       "İPTAL ET",
                       style: TextStyle(
