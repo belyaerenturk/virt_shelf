@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../item_card.dart';
+import '../../items/item_card.dart';
 import '../reading_page.dart';
 
 class ActionCategory extends StatefulWidget {

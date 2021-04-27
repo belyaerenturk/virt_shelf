@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:virt_shelf/screens/login_screen.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 
 class RegisterPage extends StatefulWidget {

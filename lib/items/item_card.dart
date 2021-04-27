@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/rounded_button.dart';
+import 'file:///D:/Computer%20Engineering/Programlama%20Dilleri/AndroidStudioProjects/virt_shelf/lib/items/rounded_button.dart';
 
 class ItemCard extends StatelessWidget {
   final String title;

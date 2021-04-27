@@ -3,8 +3,7 @@ import 'package:virt_shelf/screens/category/category_page.dart';
 import 'package:virt_shelf/screens/edit_profile_page.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/screens/reading_page.dart';
-
-import '../item_card.dart';
+import '../items/item_card.dart';
 
 class HomePage extends StatefulWidget {
   @override

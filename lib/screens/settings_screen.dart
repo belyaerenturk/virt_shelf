@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/main.dart';
 import 'package:virt_shelf/screens/about_screen.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 
@@ -60,10 +58,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         fontWeight: FontWeight.w500,
                         color: Colors.grey[600],
                       ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.grey,
                     ),
                   ],
                 ),

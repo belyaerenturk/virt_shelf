@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:virt_shelf/screens/login_screen.dart';
 import 'package:virt_shelf/screens/register_screen.dart';
 

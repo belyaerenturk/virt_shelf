@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:virt_shelf/screens/reading_page.dart';
 
-import '../../item_card.dart';
+import '../../items/item_card.dart';
 
 class FantasticCategory extends StatefulWidget {
   @override
