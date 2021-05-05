@@ -9,6 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        platform: TargetPlatform.iOS,
+      ),
       home: OpeningScreen(),
     );
   }

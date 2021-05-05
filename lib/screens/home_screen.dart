@@ -1,89 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/screens/category/category_page.dart';
-import 'package:virt_shelf/screens/edit_profile_page.dart';
-import 'package:virt_shelf/screens/opening_screen.dart';
-import 'package:virt_shelf/screens/reading_page.dart';
-import '../items/item_card.dart';
+import 'package:virt_shelf/items/books.dart';
+import 'package:virt_shelf/screens/detail_screen.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+class HomePage extends StatelessWidget {
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    // appBar
+    final appbar = AppBar(
+      elevation: .5,
+      leading: IconButton(
+        icon: Icon(Icons.menu),
+        onPressed: () {},
+      ),
+      title: Text("Kitaplar"),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ],
+    );
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          icon: Icon(Icons.exit_to_app, color: Colors.black,),
-          onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OpeningScreen()));
+    // create book title hero
+    createTile(Book book) => Hero(
+      tag: book.title,
+      child: Material(
+        elevation: 15.0,
+        shadowColor: Colors.yellow.shade900,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(book)));
           },
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.category, color: Colors.black,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()));
-            },
+          child: Image(
+            image: AssetImage(book.image),
+            fit: BoxFit.cover,
           ),
-          SizedBox(width: size.width * .32),
-          IconButton(
-            icon: Icon(Icons.person, color: Colors.black,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsUI()));
-            },
-          ),
-        ],
-      ),
-      body: Container(
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: size.height * .1,),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  child: RichText(
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.display1,
-                      children: [
-                        TextSpan(text: "En son okunan kitap:", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ItemCard(
-                  title: "Harry Potter",
-                  auth: "J. K. Rowling",
-                  pressRead: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ReadingPage();
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ],
         ),
       ),
+    );
+
+    // create book grid tiles
+    final grid = CustomScrollView(
+      primary: false,
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.all(16.0),
+          sliver: SliverGrid.count(
+            childAspectRatio: 2/3,
+            crossAxisCount: 3,
+            mainAxisSpacing: 20.0,
+            crossAxisSpacing: 20.0,
+            children: books.map((book) => createTile(book)).toList(),
+          ),
+        ),
+      ],
+    );
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      appBar: appbar,
+      body: grid,
     );
   }
 }
