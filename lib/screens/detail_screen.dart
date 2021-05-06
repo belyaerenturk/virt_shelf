@@ -1,6 +1,7 @@
 import 'package:virt_shelf/items/books.dart';
 import 'package:virt_shelf/items/rating_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:virt_shelf/screens/reading_page.dart';
 
 class DetailScreen extends StatelessWidget {
   final Book book;
@@ -56,7 +57,9 @@ class DetailScreen extends StatelessWidget {
         RatingBar(rating: book.rating,),
         SizedBox(height: 32,),
         MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ReadingPage(asset: book.asset, title: book.title,),),);
+          },
           minWidth: 160.0,
           child: Container(
             alignment: Alignment.center,

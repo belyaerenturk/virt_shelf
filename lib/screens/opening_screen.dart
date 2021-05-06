@@ -15,7 +15,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: Colors.greenAccent,
+      color: Colors.orangeAccent,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -43,7 +43,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     final registerButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: Colors.greenAccent,
+      color: Colors.orangeAccent,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -80,7 +80,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     );
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Padding(
         padding: EdgeInsets.all(36),
         child: Column(
