@@ -1,4 +1,5 @@
 import 'package:virt_shelf/items/books.dart';
+import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/items/rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:virt_shelf/screens/reading_page.dart';
@@ -11,6 +12,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
+      backgroundColor: mdDarkPink,
       elevation: .5,
       title: Text("Kitap Detayı"),
       actions: [
@@ -75,7 +77,7 @@ class DetailScreen extends StatelessWidget {
     );
 
     final topContent = Container(
-      color: Theme.of(context).primaryColor,
+      color: mdDarkPink,
       padding: EdgeInsets.only(bottom: 16.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

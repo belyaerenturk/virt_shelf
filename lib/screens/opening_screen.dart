@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/screens/login_screen.dart';
 import 'package:virt_shelf/screens/register_screen.dart';
 
@@ -15,7 +16,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: Colors.orangeAccent,
+      color: mdDarkPink,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -43,7 +44,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     final registerButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: Colors.orangeAccent,
+      color: mdDarkPink,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -80,7 +81,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
     );
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: peachOrange,
       body: Padding(
         padding: EdgeInsets.all(36),
         child: Column(
@@ -97,21 +98,8 @@ class _OpeningScreenState extends State<OpeningScreen> {
                   fontFamily: 'Montserrat',
                   fontSize: 50.0),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 50),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 50, bottom: 50),
-              child: Text(
-                "Hesabınız yoksa lütfen kayıt olunuz.",
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-              ),
-              //child: display(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 25, bottom: 25),
-              child: buttons,
-            ),
+            Spacer(),
+            buttons,
           ],
         ),
       ),

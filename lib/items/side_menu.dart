@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/screens/about_screen.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/screens/settings_screen.dart';
@@ -7,7 +8,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 20.0),
+      padding: EdgeInsets.only(top: 30.0),
       child: Drawer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

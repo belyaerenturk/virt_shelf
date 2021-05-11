@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange.shade50,
+      backgroundColor: vLightRed,
       key: scaffoldKeyKayit,
       body: Center(
         child: SingleChildScrollView(

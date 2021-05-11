@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:virt_shelf/items/books.dart';
+import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/items/side_menu.dart';
 import 'package:virt_shelf/screens/detail_screen.dart';
 
@@ -8,6 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // appBar
     final appbar = AppBar(
+      backgroundColor: vDarkViolet,
       elevation: .5,
       title: Text("Kitaplar"),
       actions: [
@@ -59,7 +61,7 @@ class HomePage extends StatelessWidget {
     );
     return Scaffold(
       drawer: SideMenu(),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: vDarkViolet,
       appBar: appbar,
       body: grid,
     );
