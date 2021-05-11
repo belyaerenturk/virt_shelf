@@ -95,7 +95,7 @@ final List<Book> books = [
       title: 'The Witcher Elflerin Kanı',
       writer: 'J.K. Rowling',
       image: 'assets/images/witcher.png',
-      asset: "assets/books/witcher_elflerin.pdf",
+      asset: "assets/books/witcher_elfler.pdf",
       description:
           "Yüzyıldan fazla bir süredir insanlar, cüceler ve elfler barış içinde yaşıyordu. Ancak zaman değişti. Barış sona erdi ve farklı ırklar tekrar savaşmaya başladı. Hem birbirlerine karşı hem de kendi aralarında. Cüceler hısımlarını öldürüyor, elfler de insanları ve insanlarla dostluk kuran elfleri. "
           "Bu çalkantılı çağda kâhinlerin beklediği bir çocuk doğar. Cintra Aslanı Kraliçe Calanthe’nin torunu Ciri’nin garip güçleri ve daha da garip bir kaderi vardır. Kehanetler onu “Alev” diye niteliyor, iyi veya kötü dünyayı değiştirecek kişi olarak. ",
