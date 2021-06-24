@@ -1,13 +1,29 @@
+import 'dart:io';
+
 import 'package:virt_shelf/items/books.dart';
 import 'package:virt_shelf/items/constants.dart';
+import 'package:virt_shelf/items/pdf_api.dart';
 import 'package:virt_shelf/items/rating_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/screens/reading_page.dart';
+import 'package:virt_shelf/screens/pdf_viewer_page.dart';
 
-class DetailScreen extends StatelessWidget {
+/*class DetailScreen extends StatelessWidget {
+
+}*/
+
+class DetailScreen extends StatefulWidget {
   final Book book;
-
   DetailScreen(this.book);
+
+  @override
+  _DetailScreenState createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+
+  void openPDF(BuildContext context, File file) => Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => PDFViewerPage(file: file)),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +45,18 @@ class DetailScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(16.0),
           child: Hero(
-            tag: book.title,
+            tag: widget.book.title,
             child: Material(
               elevation: 15.0,
               shadowColor: Colors.yellow.shade900,
               child: Image(
-                image: AssetImage(book.image),
+                image: AssetImage(widget.book.image),
                 fit: BoxFit.cover,
               ),
             ),
           ),
         ),
-        text('${book.pages} sayfa', color: Colors.black38, size: 12)
+        text('${widget.book.pages} sayfa', color: Colors.black38, size: 12)
       ],
     );
 
@@ -48,19 +64,25 @@ class DetailScreen extends StatelessWidget {
     final topRight = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        text(book.title,
+        text(widget.book.title,
             size: 16, isBold: true, padding: EdgeInsets.only(top: 16.0)),
         text(
-          "${book.writer} tarafından",
+          "${widget.book.writer} tarafından",
           color: Colors.black54,
           size: 12,
           padding: EdgeInsets.only(top: 8.0, bottom: 16.0),
         ),
-        RatingBar(rating: book.rating,),
-        SizedBox(height: 32,),
+        RatingBar(
+          rating: widget.book.rating,
+        ),
+        SizedBox(
+          height: 32,
+        ),
         MaterialButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ReadingPage(asset: book.asset, title: book.title,),),);
+          onPressed: () async {
+            final path = 'assets/books/${widget.book.url}';
+            final file = await PDFApi.loadAsset(path);
+            openPDF(context, file);
           },
           minWidth: 160.0,
           child: Container(
@@ -94,11 +116,8 @@ class DetailScreen extends StatelessWidget {
       child: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Text(
-          book.description,
-          style: TextStyle(
-              fontSize: 18.0,
-              height: 1.2
-          ),
+          widget.book.description,
+          style: TextStyle(fontSize: 18.0, height: 1.2),
         ),
       ),
     );
@@ -109,16 +128,17 @@ class DetailScreen extends StatelessWidget {
         children: [topContent, bottomContent],
       ),
     );
+
   }
 
   // create text widget
   text(
-      String data, {
-        Color color = Colors.black87,
-        num size = 14,
-        EdgeInsetsGeometry padding = EdgeInsets.zero,
-        bool isBold = false,
-      }) =>
+    String data, {
+    Color color = Colors.black87,
+    num size = 14,
+    EdgeInsetsGeometry padding = EdgeInsets.zero,
+    bool isBold = false,
+  }) =>
       Padding(
         padding: padding,
         child: Text(

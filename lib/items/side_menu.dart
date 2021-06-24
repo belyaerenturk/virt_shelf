@@ -1,10 +1,24 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/items/constants.dart';
+import 'package:virt_shelf/items/pdf_api.dart';
 import 'package:virt_shelf/screens/about_screen.dart';
+import 'package:virt_shelf/screens/book_wirter_page.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
+import 'package:virt_shelf/screens/pdf_viewer_page.dart';
 import 'package:virt_shelf/screens/settings_screen.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
+  @override
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+
+  void openPDF(BuildContext context, File file) => Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => PDFViewerPage(file: file)),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,6 +64,54 @@ class SideMenu extends StatelessWidget {
                     thickness: 1,
                   ),
                   ListTile(
+                    leading: Icon(Icons.file_upload),
+                    title: Text("Dosya Aç"),
+                    onTap: () async {
+                      final file = await PDFApi.pickFile();
+                      if (file == null) return;
+                      openPDF(context, file);
+                    },
+                  ),
+                  Divider(
+                    height: 1.0,
+                    color: Colors.blueGrey,
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.open_in_browser),
+                    title: Text("Network api"),
+                    onTap: () async {
+                      final url =
+                          'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
+                      final file = await PDFApi.loadNetwork(url);
+                      openPDF(context, file);
+                    },
+                  ),
+                  Divider(
+                    height: 1.0,
+                    color: Colors.blueGrey,
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.attach_file_sharp),
+                    title: Text("Eserler ve Yazarları"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BookWriter();
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                  Divider(
+                    height: 1.0,
+                    color: Colors.blueGrey,
+                    thickness: 1,
+                  ),
+                  ListTile(
                     leading: Icon(Icons.settings),
                     title: Text("AYARLAR"),
                     onTap: () {
@@ -84,7 +146,9 @@ class SideMenu extends StatelessWidget {
                       },
                       child: Text("ÇIKIŞ YAP",
                           style: TextStyle(
-                              fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
+                              fontSize: 16,
+                              letterSpacing: 2.2,
+                              color: Colors.black)),
                     ),
                   ),
                 ],

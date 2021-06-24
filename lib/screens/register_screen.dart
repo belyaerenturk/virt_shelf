@@ -19,16 +19,22 @@ class _RegisterPageState extends State<RegisterPage> {
     var s = sifreKayit.text;
     var ta = tamAdKayit.text;
 
-    if(ka == "" && s == "" && ta == "") {
-      scaffoldKeyKayit.currentState.showSnackBar(SnackBar(content: Text("Hatali kayit, herhangi bir alan boş bırakılamaz."),),);
-    }
-    else {
+    if (ka == "" && s == "" && ta == "") {
+      scaffoldKeyKayit.currentState.showSnackBar(
+        SnackBar(
+          content: Text("Hatali kayit, herhangi bir alan boş bırakılamaz."),
+        ),
+      );
+    } else {
       var sp = await SharedPreferences.getInstance();
       sp.setString("kullaniciAdiKayit", ka);
       sp.setString("sifreKayit", s);
       sp.setString("tamAdKayit", ta);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) => OpeningScreen()),);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => OpeningScreen()),
+      );
     }
   }
 

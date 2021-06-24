@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855118988910",
+    "project_id": "virtshelf",
+    "storage_bucket": "virtshelf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855118988910:android:dfbf1f6c201062e9d4887f",
+        "android_client_info": {
+          "package_name": "com.mbe.mobile.virt_shelf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855118988910-45o0fkkg4aogkrlrbl9f1ecpbtlsp9oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlfPRTisvFnpsY2cVQyMToMetJ4ZWeixI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855118988910-45o0fkkg4aogkrlrbl9f1ecpbtlsp9oh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

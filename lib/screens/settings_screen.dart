@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/screens/about_screen.dart';
-import 'package:virt_shelf/screens/opening_screen.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -12,7 +10,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
           onPressed: () {
