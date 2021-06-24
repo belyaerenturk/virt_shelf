@@ -7,6 +7,7 @@ import 'package:virt_shelf/screens/book_wirter_page.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/screens/pdf_viewer_page.dart';
 import 'package:virt_shelf/screens/settings_screen.dart';
+import 'package:virt_shelf/screens/statistics_screen.dart';
 
 class SideMenu extends StatefulWidget {
   @override
@@ -103,6 +104,21 @@ class _SideMenuState extends State<SideMenu> {
                             return BookWriter();
                           },
                         ),
+                      );
+                    },
+                  ),
+                  Divider(
+                    height: 1.0,
+                    color: Colors.blueGrey,
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.show_chart),
+                    title: Text("İstatistikler"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StatisticsScreen()),
                       );
                     },
                   ),
