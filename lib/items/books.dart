@@ -32,7 +32,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Sırlar Odası',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp2.jpg',
-      url: "hp2.pdf",
+      url: "hp1.pdf",
       description:
           "'Bir komplo var, Harry Potter. Bu yıl Hogwarts Cadılık ve Büyücülük Okulu'nda dehşet verici şeyler yapmak için bir komplo.' Dursley'ler o yaz öylesine çekilmez olmuşlardır ki, Harry bir an önce okulu Hogwarts'a geri dönmek için can atmaktadır.",
       pages: 418,
@@ -41,7 +41,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Azkaban Tutsağı',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp3.jpg',
-      url: "hp3.pdf",
+      url: "hp1.pdf",
       description:
           "Sirius Black adında azılı bir katil, tüyler ürpertici Azkaban kalesinde tam on iki yıl boyunca tutsak kalmıştır. Tek lanetle on üç kişiyi birden öldüren Black'in, Karanlık Lord Voldemort'un hizmetkârı olduğuna kesin gözüyle bakılmaktadır. Bir yolunu bulup Azkaban'dan kaçan Black'in peşinde olduğu bir tek kişi vardır: Harry Potter. Harry, büyücülük okulunun sihirli duvarları arasındayken, arkadaşları ve öğretmenleriyle birlikteyken bile güvende değildir. Çünkü aralarında bir hain olabilir.",
       pages: 533,
@@ -50,7 +50,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Ateş Kadehi',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp4.jpg',
-      url: "hp4.pdf",
+      url: "hp1.pdf",
       description:
           "Harry Potter dizisinin dördüncü kitabı Harry Potter ve Ateş Kadehi, Hogwarts Cadılık ve Büyücülük Okulu'nda dördüncü sınıfa geçen Harry'nin başından geçenleri konu alıyor."
           "Yaz tatilinde yanlarında kaldığı Dursley'lerden bir an önce kurtulmak isteyen Harry, bir yolunu bulup arkadaşlarıyla birlikte Quidditch Dünya Kupası finalini izlemeye gidiyor. Bu yıl okuldaki en büyük yenilik ise Üçbüyücü Turnuvası. Hogwarts'ın yanı sıra iki rakip büyücülük okulunun katılımıyla gerçekleşen bu etkinlik, yüz yıldan beri ilk kez düzenleniyor."
@@ -61,7 +61,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Zümrüdüanka Yoldaşlığı',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp5.jpg',
-      url: "hp5.pdf",
+      url: "hp1.pdf",
       description:
           "Hogwarts Cadılık ve Büyücülük Okulu'ndaki beşinci yılında Harry, hayatını cehenneme çeviren sihirli/sihirsiz pek çok şeyle başa çıkmak zorunda: Yaz tatilini yanlarında harcadığı aptal akrabaları; ergenlik çağının isyanları, heyecanları, korkuları; onun gösteriş düşkünü bir yalancı olduğunu düşünenler; okulun işleyişine burnunu sokan Sihir Bakanlığı; öncekileri mumla aratan yeni bir Karanlık Sanatlara Karşı Savunma öğretmeni; yine karşı karşıya geldiği Ruh Emici'ler ve Ölüm Yiyen'ler; varlığını her zamankinden çok hissettiren Voldemort; ağır dersler, zor sınavlar, acımasız cezalar; sürekli yinelenen bir kabus ve acıyan yara izi; ona en yakın insanlardan birinin ölümü; beş yıl gecikmeyle öğrendiği bir gerçek...",
       pages: 1230,
@@ -70,7 +70,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Melez Prens',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp6.jpg',
-      url: "hp6.pdf",
+      url: "hp1.pdf",
       description:
           "Kitapta, Lord Voldemort Draco Malfoy'u Albus Dumbledore'u öldürmekle görevlendirmiştir. Eğer Draco beceremezse bunu Snape yapacaktır; bunu kendi evinde, Bellatrix'in yaptığı bozulmaz yeminde söylemektedir. Draco, ailesinin geçmişini öğrenir; babasının bir Ölüm Yiyen olduğunu, Voldemort'un en sadık yandaşlarından biri olduğunu ve bu görevin ailesinde soydan gelen bir gelenek olduğunu öğrenir. Harry, Melez Prens yardımı ile bir ödül olarak kazandığıFelix Felicis, (Sıvı Şans), adlı iksiri içer ve Slughorn'dan hortkuluklar hakkındaki anısını alır. Harry, kitabın sonuna doğru Dumbledore ile bir mağaraya gider ve Dumbledore içtiği iksir yüzünden zayıf düşer. Okula döndüklerinde üzerinde Kranlık İşareti gördükleri için Astronomi kulesine giderler. Orada Dumbledore Harry'i dondurur ve o anda da Draco Malfoy Dumbledore'un asasını uçurur. Diğer Ölüm Yiyenler de okula gelir ve Draco'yu, Dumbledor'u öldürmesi konusunda kışkırtırlar. O anda Snape gelir ve Kadavra Laneti ile Dumbledore'u öldürür. Melez Prens ise aslında Snape'tir.",
       pages: 1487,
@@ -79,7 +79,7 @@ final List<Book> books = [
       title: 'Harry Potter ve Ölüm Yadigarları',
       writer: 'J.K. Rowling',
       image: 'assets/images/hp7.jpg',
-      url: "hp7.pdf",
+      url: "hp1.pdf",
       description:
           "Sihir dünyası savaşta! Karanlık Lord iyice güç kazanırken iyiler de boş durmuyor. Yedinci yılında Hogwarts Cadılık ve Büyücülük Okulu\'na dönmeyen Harry Potter, Dumbledore\'un ona bıraktığı görevi tamamlamaya çalışıyor. Yanında -her zamanki gibi- Ron ve Hermione\'yle, bir yandan Voldemort\'tan ve onun Ölüm Yiyen\'lerinden kaçarken bir yandan da Hortkuluklar\'ı yok etmek, Ölüm Yadigârları\'nın sırrını keşfetmek zorunda olan Harry kendi geçmişiyle ilgili de pek çok şey öğreniyor.",
       rating: 4.62),
