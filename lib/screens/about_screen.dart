@@ -26,7 +26,7 @@ class _AboutScreenState extends State<AboutScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           child: Text(
-            "Bu uygulama Dr. Öğretim Üyesi Ahmet Cevahir ÇINAR tarafından yürütülen 3301456 kodlu MOBİL PROGRAMLAMA dersi kapsamında 193301029 numaralı Öğrenci Muhammed Belya ERENTÜRK tarafından 30 Nisan 2021 günü yapılmıştır.",
+            "Bu uygulama Dr. Öğretim Üyesi Ahmet Cevahir ÇINAR tarafından yürütülen 3301456 kodlu MOBİL PROGRAMLAMA dersi kapsamında 193301029 numaralı Öğrenci Muhammed Belya ERENTÜRK tarafından 25 Haziran 2021 günü yapılmıştır.",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
           ),
         ),
