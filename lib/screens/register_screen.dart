@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/services/auth_services.dart';

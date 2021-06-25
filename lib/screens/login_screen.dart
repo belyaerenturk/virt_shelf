@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/services/auth_services.dart';
 import 'home_page.dart';
