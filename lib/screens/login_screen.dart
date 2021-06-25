@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:virt_shelf/items/constants.dart';
+import 'package:virt_shelf/services/auth_services.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,34 +11,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var kullaniciAdi = TextEditingController();
-  var sifre = TextEditingController();
-  var spKullaniciAdi;
-  var spSifre;
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> girisKontrol() async {
-    var id = kullaniciAdi.text;
-    var pass = sifre.text;
-    var sp = await SharedPreferences.getInstance();
-    setState(() {
-      spKullaniciAdi = sp.getString("kullaniciAdiKayit");
-      spSifre = sp.getString("sifreKayit");
-
-      if(id == spKullaniciAdi && pass == spSifre) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
-      }
-      else {
-        scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Kullanici adi veya sifre yanlis.")));
-      }
-    });
-  }
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: vLightRed,
-      key: scaffoldKey,
       body: Center(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(8.0),
@@ -60,7 +43,8 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: TextField(
-                  controller: kullaniciAdi,
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'Kullanıcı Adı',
                     prefixIcon: Icon(Icons.email),
@@ -76,10 +60,11 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: TextField(
-                  controller: sifre,
+                  controller: _passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Şifre',
-                    prefixIcon: Icon(Icons.security),
+                    prefixIcon: Icon(Icons.vpn_key),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
@@ -87,31 +72,31 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     border: OutlineInputBorder(),
                   ),
-                  obscureText: true,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        onPressed: () {
-                          girisKontrol();
-                        },
-                        child: Text(
-                          'Giriş yap',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        color: Colors.blue,
-                      ),
+              Material(
+                elevation: 5.0,
+                borderRadius: BorderRadius.circular(25.0),
+                color: logoGreen,
+                child: MaterialButton(
+                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                  child: Text(
+                    "Giriş Yap",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
+                  ),
+                  onPressed: () {
+                    _authService
+                        .signIn(_emailController.text, _passwordController.text)
+                        .then((value) {
+                      return Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    });
+                  },
                 ),
               ),
             ],

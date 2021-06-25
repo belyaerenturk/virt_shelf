@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:virt_shelf/items/constants.dart';
+import 'package:virt_shelf/screens/opening_screen.dart';
+import 'package:virt_shelf/services/auth_services.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -29,6 +30,8 @@ class _SettingsPageState extends State<SettingsPage> {
       valNotify3 = newValue3;
     });
   }
+
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.black87,
                 ),
                 SizedBox(width: 10),
-                Text("Account",
+                Text("Hesap",
                     style:
                         TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
               ],
@@ -72,11 +75,11 @@ class _SettingsPageState extends State<SettingsPage> {
               thickness: 1,
             ),
             SizedBox(height: 10),
-            buildAccountOption(context, "Change Password"),
-            buildAccountOption(context, "Content Settings"),
-            buildAccountOption(context, "Social"),
-            buildAccountOption(context, "Language"),
-            buildAccountOption(context, "Privacy and Security"),
+            buildAccountOption(context, "Şifre Değiştir"),
+            buildAccountOption(context, "İçerik Ayarları"),
+            buildAccountOption(context, "Sosyal"),
+            buildAccountOption(context, "Dil"),
+            buildAccountOption(context, "Gizlilik ve Güvenlik"),
             SizedBox(height: 40),
             Row(
               children: [
@@ -90,11 +93,11 @@ class _SettingsPageState extends State<SettingsPage> {
             Divider(height: 20, thickness: 1),
             SizedBox(height: 10),
             buildNotificationOption(
-                "Dark Theme", valNotify1, onChangeFunction1),
+                "Kara Tema", valNotify1, onChangeFunction1),
             buildNotificationOption(
-                "Account Active", valNotify2, onChangeFunction2),
+                "Hesabı Aktifleştir", valNotify2, onChangeFunction2),
             buildNotificationOption(
-                "Opportunity", valNotify3, onChangeFunction3),
+                "Fırsatlar", valNotify3, onChangeFunction3),
             SizedBox(height: 50),
             Center(
               child: OutlinedButton(
@@ -104,9 +107,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OpeningScreen()));
+                },
                 child: Text(
-                  "SIGN OUT",
+                  "Çıkış Yap",
                   style: TextStyle(
                     fontSize: 16,
                     letterSpacing: 2.2,

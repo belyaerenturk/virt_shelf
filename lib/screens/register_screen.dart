@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:virt_shelf/items/constants.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
+import 'package:virt_shelf/services/auth_services.dart';
+import 'package:virt_shelf/screens/login_screen.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -9,40 +11,18 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  var kullaniciAdiKayit = TextEditingController();
-  var sifreKayit = TextEditingController();
-  var tamAdKayit = TextEditingController();
-  var scaffoldKeyKayit = GlobalKey<ScaffoldState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordAgainController =
+      TextEditingController();
 
-  Future<void> kayitKontrol() async {
-    var ka = kullaniciAdiKayit.text;
-    var s = sifreKayit.text;
-    var ta = tamAdKayit.text;
-
-    if (ka == "" && s == "" && ta == "") {
-      scaffoldKeyKayit.currentState.showSnackBar(
-        SnackBar(
-          content: Text("Hatali kayit, herhangi bir alan boş bırakılamaz."),
-        ),
-      );
-    } else {
-      var sp = await SharedPreferences.getInstance();
-      sp.setString("kullaniciAdiKayit", ka);
-      sp.setString("sifreKayit", s);
-      sp.setString("tamAdKayit", ta);
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => OpeningScreen()),
-      );
-    }
-  }
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: vLightRed,
-      key: scaffoldKeyKayit,
       body: Center(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(8.0),
@@ -66,10 +46,11 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: TextField(
-                  controller: kullaniciAdiKayit,
+                  controller: _nameController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'Kullanıcı Adı',
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.person),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
@@ -82,10 +63,28 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: TextField(
-                  controller: sifreKayit,
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    labelText: 'Şifre',
-                    prefixIcon: Icon(Icons.security),
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.mail),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: false,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                child: TextField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelText: 'Parola',
+                    prefixIcon: Icon(Icons.vpn_key),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
@@ -99,10 +98,10 @@ class _RegisterPageState extends State<RegisterPage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 child: TextField(
-                  controller: tamAdKayit,
+                  controller: _passwordAgainController,
                   decoration: InputDecoration(
-                    labelText: 'Tam Adı',
-                    prefixIcon: Icon(Icons.public),
+                    labelText: 'Parola Tekrar',
+                    prefixIcon: Icon(Icons.vpn_key),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
@@ -110,27 +109,29 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     border: OutlineInputBorder(),
                   ),
-                  obscureText: false,
+                  obscureText: true,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MaterialButton(
-                      child: Text(
-                        'Kayıt ol',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: Colors.blue,
-                      onPressed: () {
-                        kayitKontrol();
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
+              Material(
+                elevation: 5.0,
+                borderRadius: BorderRadius.circular(25.0),
+                color: logoGreen,
+                child: MaterialButton(
+                  padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                  child: Text(
+                    "Kayıt Ol",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
+                  ),
+                  onPressed: () {
+                    _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    });
+                  },
                 ),
               ),
             ],

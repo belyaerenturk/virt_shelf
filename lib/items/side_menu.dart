@@ -3,11 +3,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:virt_shelf/items/pdf_api.dart';
 import 'package:virt_shelf/screens/about_screen.dart';
-import 'package:virt_shelf/screens/book_wirter_page.dart';
+import 'package:virt_shelf/screens/book_writer.dart';
 import 'package:virt_shelf/screens/opening_screen.dart';
 import 'package:virt_shelf/screens/pdf_viewer_page.dart';
 import 'package:virt_shelf/screens/settings_screen.dart';
 import 'package:virt_shelf/screens/statistics_screen.dart';
+import 'package:virt_shelf/services/auth_services.dart';
 
 class SideMenu extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class _SideMenuState extends State<SideMenu> {
   void openPDF(BuildContext context, File file) => Navigator.of(context).push(
     MaterialPageRoute(builder: (context) => PDFViewerPage(file: file)),
   );
+
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +36,6 @@ class _SideMenuState extends State<SideMenu> {
               child: ListView(
                 children: [
                   // ListTile(leading, title, trailing)
-                  ListTile(
-                    leading: Icon(Icons.account_circle),
-                    title: Text('HESAP'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Divider(
-                    height: 1.0,
-                    color: Colors.blueGrey,
-                    thickness: 1,
-                  ),
                   ListTile(
                     leading: Icon(Icons.info),
                     title: Text("HAKKINDA"),
@@ -80,7 +71,7 @@ class _SideMenuState extends State<SideMenu> {
                   ),
                   ListTile(
                     leading: Icon(Icons.open_in_browser),
-                    title: Text("Network api"),
+                    title: Text("Gizlilik Sözleşmesi"),
                     onTap: () async {
                       final url =
                           'https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
@@ -151,14 +142,7 @@ class _SideMenuState extends State<SideMenu> {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return OpeningScreen();
-                            },
-                          ),
-                        );
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => OpeningScreen()));
                       },
                       child: Text("ÇIKIŞ YAP",
                           style: TextStyle(

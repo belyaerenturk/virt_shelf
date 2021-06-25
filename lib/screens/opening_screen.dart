@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:virt_shelf/items/constants.dart';
+import 'package:virt_shelf/screens/home_page.dart';
 import 'package:virt_shelf/screens/login_screen.dart';
 import 'package:virt_shelf/screens/register_screen.dart';
+import 'package:virt_shelf/services/auth_services.dart';
 
 class OpeningScreen extends StatefulWidget {
   @override
@@ -9,6 +12,9 @@ class OpeningScreen extends StatefulWidget {
 }
 
 class _OpeningScreenState extends State<OpeningScreen> {
+
+  AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -41,6 +47,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
         },
       ),
     );
+
     final registerButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
